@@ -1,0 +1,14 @@
+Package: BGUPsych
+Type: Package
+Title: Useful commands for BGU Psychology students
+Version: 0.1.0
+Author: <yannco@post.bgu.ac.il>
+Maintainer: <yannco@post.bgu.ac.il>
+Description: This package was built by students for students. If something is unclear email or text 0535-290202
+License: GPL (>= 3)
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.1.2
+Imports: 
+    ggplot2,
+    purrr
