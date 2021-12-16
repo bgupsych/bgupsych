@@ -2,9 +2,9 @@ Package: BGUPsych
 Type: Package
 Title: Useful commands for BGU Psychology students
 Version: 0.1.0
-Author: <yannco@post.bgu.ac.il>
+Author: Yann C. (053-5290202)
 Maintainer: <yannco@post.bgu.ac.il>
-Description: This package was built by students for students. If something is unclear email or text 0535-290202
+Description: This package was built by students and for students. If something is unclear email or call
 License: GPL (>= 3)
 Encoding: UTF-8
 LazyData: true
