@@ -4,7 +4,7 @@
 \alias{mitun}
 \title{Numerical moderation graph and summary}
 \usage{
-mitun(DV, x.pred, x.mod, sdH = 1, sdM = 0, sdL = 1)
+mitun(DV, x.pred, x.mod, sdH = 1, sdM = 0, sdL = -1)
 }
 \arguments{
 \item{DV}{The dependent variable.}
@@ -18,13 +18,15 @@ mitun(DV, x.pred, x.mod, sdH = 1, sdM = 0, sdL = 1)
 \item{sdM}{Leave untouched, unless you wish to generate a different SD moderation. \code{Mean of moderator}.}
 
 \item{sdL}{Leave untouched, unless you wish to generate a different SD moderation.\code{Negative sd mod}.}
+
+\item{sdH/M/L}{refer to SD level of the moderator. feel free to explore, but default is best for analsys.}
 }
 \value{
-\code{\link{ggplot graph}}.
+\code{\link{ggplot}} graph.
 
-\code{\link{lm() model summary}}.
+\code{\link{lm}} model summary.
 
-\code{\link{intercepts and slopes}} for each level of moderator.
+\code{intercepts and slopes} for each level of moderator.
 }
 \description{
 This function really does it all. It will generate both a ggplot graph,
@@ -34,11 +36,12 @@ slopes&intercepts and a summary!
 The moderator MUST be numeric.
 }
 \examples{
-\code{\link{mitun(DV=trees$Girth,x.pred=trees$Height,x.mod=trees$Volume)}}
+mitun(DV=trees$Girth,
+          x.pred=trees$Height,
+          x.mod=trees$Volume)
 # This commands suggests that Girth is predicted by Height, and Volume has moderate affect on Height
-mitun(..., sdH=2,sdL=2)
-# In this example, the graph will generate moderations of SD=+2, mean(sdM=0), and SD=-2.
-# Note that you only mention the absolute value even for the smaller SD (without - sign)
+mitun(..., sdH=2,sdL=-2)
+# In this example, the graph will generate moderation of SD=+2, mean(sdM=0), and SD=-2.
 }
 \seealso{
 \code{\link{jtools}} or \code{\link{interactions}} for more options.
