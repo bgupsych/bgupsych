@@ -5,7 +5,6 @@
 #' # returns 6.283185, which indeed equals to '2*pi'
 deg.to.rad <- function(deg){
   rad=(deg/360)*2*pi
-  print(rad)
   return(rad)
 }
 # example deg.to.rad(180)
