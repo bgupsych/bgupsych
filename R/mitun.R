@@ -32,14 +32,10 @@ mitun <- function(DV,x.pred,x.mod,sdH=1,sdM=0,sdL=-1){
   b1 <- coef(m)[2]
   b2 <- coef(m)[3]
   b3 <- coef(m)[4]
-  # Values for lvls of moderation
-  x.modH <- sd(x.mod.c)*sdH
-  x.modM <- sd(x.mod.c)*sdM
-  x.modL <- sd(x.mod.c)*sdL
   # Slopes
-  mH <- b1+b3*x.modH
-  mM <- b1+b3*x.modM
-  mL <- b1+b3*x.modL
+  mH <- b1+b3*sd(x.mod.c)*sdH
+  mM <- b1+b3*sd(x.mod.c)*sdM
+  mL <- b1+b3*sd(x.mod.c)*sdL
   # Intercepts
   interH <- a+b2*x.modH
   interM <- a
