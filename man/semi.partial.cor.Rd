@@ -7,7 +7,7 @@
 semi.partial.cor(DV, x.predictor, x.controlled)
 }
 \value{
-\code{\link{data.frame}} with the \code{\link{Rsq}} of partial and semipartial, sample size and DF.
+\code{data.frame} with the \code{Rsq} of partial and semi-partial, sample size and DF.
 }
 \description{
 In the Partial correlation, the controlled variable is removed from both DV and UDV,
@@ -24,8 +24,9 @@ In a nutshell, both correlate residuals created by a third variable.
 Partial will always be Greater than/Equal to Semi-partial.
 }
 \examples{
-Semi.partial.cor(DV=trees$Height, x.predictor=trees$Volume, x.controlled=trees$Girth)
-# We correlate Height and Volume, holding Girth constant. In SP it's been removed from only the predicting variable,
+semi.partial.cor(DV=depression$Bsum,
+ x.predictor=depression$m_years, x.controlled=depression$age)
+# We correlate 'Bsum' and 'm_years', holding 'age' constant. In SP it's been removed from only the predicting variable,
 whilst in partial from both.
 }
 \seealso{
