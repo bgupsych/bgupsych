@@ -8,11 +8,12 @@
 #'  variables while controlling a third.
 #'   SP holds constant the controlled variable only for the UDV (predictor).
 #' @seealso \code{\link{ppcor}} for more options.
-#' @examples Semi.partial.cor(DV=trees$Height, x.predictor=trees$Volume, x.controlled=trees$Girth)
-#' @examples # We correlate Height and Volume, holding Girth constant. In SP it's been removed from only the predicting variable,
+#' @examples semi.partial.cor(DV=depression$Bsum,
+#'  x.predictor=depression$m_years, x.controlled=depression$age)
+#' @examples # We correlate 'Bsum' and 'm_years', holding 'age' constant. In SP it's been removed from only the predicting variable,
 #' whilst in partial from both.
 #' @note Partial will always be Greater than/Equal to Semi-partial.
-#' @returns \code{\link{data.frame}} with the \code{\link{Rsq}} of partial and semipartial, sample size and DF.
+#' @returns \code{data.frame} with the \code{Rsq} of partial and semi-partial, sample size and DF.
 
 semi.partial.cor <- function(DV,x.predictor,x.controlled){
   partial <- cor(resid(lm(DV~x.controlled)),
@@ -22,4 +23,3 @@ semi.partial.cor <- function(DV,x.predictor,x.controlled){
                     df=length(DV)-3,n=length(DV)))
 
 }
-
