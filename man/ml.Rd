@@ -4,18 +4,20 @@
 \alias{ml}
 \title{Calculates Maximum Likelihood}
 \usage{
-ml(k, n, L)
+ml(k, n, L, round = 4)
 }
 \arguments{
 \item{k}{Number of successes observed in all trials.}
 
 \item{n}{Number of trials.}
 
-\item{L}{the probability for success in each trial.}
+\item{L}{The probability for success in each trial.}
+
+\item{round}{Number of decimals desired. default is set to 4.}
 }
 \value{
-\code{prob}: Is the probability of the observed data,
- given the \code{L}: the probability for success in each trial.
+\code{\link{data.frame}} with the probability tested and its likelihood.
+  \code{print}: A verbal print, modified to percentage.
 }
 \description{
 This function returns the likelyhood of the data,
@@ -26,9 +28,16 @@ Say you have a dice. success is defined as getting 4.
 In \code{n=10} trials, you got \code{k=3} successes. Check the prob to get 4 in a single trial (it's \code{L=1/6}, obviously).
 Given the data, only 0.16 chance that 0.167 (1/6) was the success probability in each trial.
 you can check various assumptions by using a vector for the L parameter:
-\code{\link{ml(3,10,c(1/6,2/6))}}
+\code{ml(3,10,c(1/6,2/6))}
 Here we can see that it is more likely that the prob to get 4 was 2/6, so the dice was fixed.
 }
 \examples{
-\code{\link{ml(3,10,1/6)}}
+ml(k=7,n=10,L=0.7) # see full print for this one.
+
+You can change the decimals by adjusting the round argument.
+ ml(7,10,0.7,round=3)
+
+You can even test the likelihood of numerous probabilities.
+ probs <- seq(0,1,length=10) #10 values between 0 and 1
+ ml(7,10,L=probs)
 }
