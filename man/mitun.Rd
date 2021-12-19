@@ -33,15 +33,15 @@ This function really does it all. It will generate both a ggplot graph,
 slopes&intercepts and a summary!
 }
 \note{
-The moderator MUST be numeric.
+The moderator MUST be numeric. This function works for a simple  moderation model.
 }
 \examples{
-mitun(DV=trees$Girth,
-          x.pred=trees$Height,
-          x.mod=trees$Volume)
-# This commands suggests that Girth is predicted by Height, and Volume has moderate affect on Height
+mitun(DV=data.moderation$depression,
+          x.pred=data.moderation$suicide_tendencies,
+          x.mod=data.moderation$optimism)
+# This commands suggests that depression is predicted by suicide tendencies, and optimism has moderate affect on depression
 mitun(..., sdH=2,sdL=-2)
-# In this example, the graph will generate moderation of SD=+2, mean(sdM=0), and SD=-2.
+# In this example, the graph will generate moderation of SD=+2, mean(sdM=0), and SD=-2 in the moderator variable.
 }
 \seealso{
 \code{\link{jtools}} or \code{\link{interactions}} for more options.
