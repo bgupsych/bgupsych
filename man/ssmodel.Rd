@@ -6,16 +6,26 @@
 \usage{
 ssmodel(model)
 }
+\arguments{
+\item{model}{lm() object}
+}
 \description{
 Make sure to create your \code{lm} object first. Put your object in the function and see how magic happens.
 }
 \examples{
-x <- lm(Volume~.,trees)
+x <- lm(Happiness.Score~.,Happiness.Score)
 ssmodel(x)
+# This model predicts Happiness score by all other variables in the data frame.
+
+y <- lm(Bsum~age+sat,data=depression)
+ssmodel(y)
+# This model only uses age and sat to predict Bsum
 }
 \seealso{
 What happens if you use the mean in your model as prediction?
-\code{ssmodel(lm(trees$Volume~rep(mean(trees$Volume),nrow(trees))))}
-# This is a hard-to-read input that contains a repetition vector of the mean value of Volume for as many times as the  number of rows in the data,
-# then these values (actually, constant) are used to predict Volume. See for yourself that SSRes=SST and SSReg=0.
+
+\code{Mean <- rep(mean(depression$Bsum),nrow(depression))}
+# a repetition of the Bsum's mean, times the number of observations in 'depression'
+\code{ssmodel(lm(Bsum~Mean,depression))}
+# The mean value is used to predict Bsum. See for yourself that SSRes=SST and SSReg=0.
 }
