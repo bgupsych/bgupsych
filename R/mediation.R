@@ -3,7 +3,7 @@
 #' @param DV The dependent variable.
 #' @param x.pred The predictor variable.
 #' @param x.med The mediation variable.
-#' @param alpha used in significant tests. default is 5. \code{5 means 5%, or 0.05}.
+#' @param alpha Used in significant tests. default is 5 and means 0.05 .
 #' @description This function calculates the direct and indirect effect of two variables,
 #'  mediated by a 3rd variable.
 #' @details Output is a table of your 4 paths, their value and p value.
@@ -12,7 +12,7 @@
 #' # In this example, we check whether volume is the mediator between Height and Girth.
 #' @examples mediation(..., alpha =1)
 #' # In this example, the alpha is set to 1, or 0.01.
-#' @seealso \code{medmod} for more options.
+#' @seealso \code{\link{medmod}} package for more options.
 #' @note  If some paths are significant and some aren't, check table for more details.
 #' @returns [1] \code{\link{a*b+c'=c}} formula is tested.
 #' @returns [2] Paths's significance.
