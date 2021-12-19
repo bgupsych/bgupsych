@@ -12,6 +12,8 @@ mediation(DV, x.pred, x.med, alpha = 5)
 \item{x.pred}{The predictor variable.}
 
 \item{x.med}{The mediation variable.}
+
+\item{alpha}{Used in significant tests. default is 5 and means 0.05 .}
 }
 \value{
 [1] \code{\link{a*b+c'=c}} formula is tested.
@@ -40,5 +42,5 @@ mediation(..., alpha =1)
 # In this example, the alpha is set to 1, or 0.01.
 }
 \seealso{
-\code{medmod} for more options.
+\code{\link{medmod}} package for more options.
 }
