@@ -3,13 +3,16 @@
 \name{fibonacci}
 \alias{fibonacci}
 \title{Fibonacci sequence generator}
+\source{
+\url{https://www.mathsisfun.com/numbers/fibonacci-sequence.html}
+}
 \usage{
-fibonacci(x, decimals = 9)
+fibonacci(x, round = 9)
 }
 \arguments{
 \item{x}{The number of numbers in the sequence.}
 
-\item{decimals}{Decimals to print of the golden ratio, default is 9.}
+\item{round}{Decimals to print of the golden ratio, default is 9.}
 }
 \description{
 This function calculates the fibonacci sequence and returns an approximation of the golden ratio.
