@@ -4,10 +4,15 @@
 \alias{mode}
 \title{Mode finder}
 \usage{
-mode(x)
+mode(x, freq = F)
 }
 \arguments{
-\item{x}{a vector containing numbers.}
+\item{x}{A numeric vector}
+
+\item{freq}{A logical argument. Adds the frequency of your mode, default is FALSE}
+}
+\value{
+Most frequent value, and if freq is set to TRUE, a how many times it appears
 }
 \description{
 What value is the most frequent one?
@@ -20,4 +25,5 @@ x <- c(11,14,13,15,13,16,14,13)
 mode(x) ## 13
 y <- c(x,14)
 mode(y) ## 13, 14
+mode(y,freq=TRUE)
 }
