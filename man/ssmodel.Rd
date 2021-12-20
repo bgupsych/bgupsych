@@ -7,10 +7,10 @@
 ssmodel(model)
 }
 \arguments{
-\item{model}{lm() object}
+\item{model}{\code{\link{lm}} object}
 }
 \description{
-Make sure to create your \code{lm} object first. Put your object in the function and see how magic happens.
+Make sure to create your \code{\link{lm}} object first. Put your object in the function and see how magic happens.
 }
 \examples{
 x <- lm(Happiness.Score~.,Happiness.Score)
