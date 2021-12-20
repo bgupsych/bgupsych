@@ -37,9 +37,9 @@ mitun <- function(DV,x.pred,x.mod,sdH=1,sdM=0,sdL=-1){
   mM <- b1+b3*sd(x.mod.c)*sdM
   mL <- b1+b3*sd(x.mod.c)*sdL
   # Intercepts
-  interH <- a+b2*x.modH
-  interM <- a
-  interL <- a+b2*x.modL
+  interH <- a+b2*sd(x.mod.c)*sdH
+  interM <- a+b2*sd(x.mod.c)*sdM
+  interL <- a+b2*sd(x.mod.c)*sdL
   # Preparing functions for gg graph
   funH <- function(x.pred.c) interH+x.pred.c*mH
   funM <- function(x.pred.c) interM+x.pred.c*mM
