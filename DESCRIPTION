@@ -14,3 +14,6 @@ Imports:
     purrr
 Depends: 
     R (>= 2.10)
+Suggests: 
+    caret,
+    olsrr
