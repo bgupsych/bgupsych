@@ -9,9 +9,9 @@ draw(X, P, round = 3)
 \arguments{
 \item{X}{Mishtane Mikri.}
 
-\item{round}{Number of decimals desired. default is set to 3.}
-
 \item{p}{The probability for each x 'P(x)'}
+  
+\item{round}{Number of decimals desired. default is set to 3.}
 }
 \value{
 \code{\link{data.frame}} with the specific X and its probability.
