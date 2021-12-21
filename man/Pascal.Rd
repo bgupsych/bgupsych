@@ -4,7 +4,7 @@
 \alias{Pascal}
 \title{Pascal Triangle generator}
 \source{
-\url{https://www.mathsisfun.com/pascals-triangle.html}
+
 }
 \usage{
 Pascal(nrow)
@@ -21,4 +21,7 @@ Pascal(4)
 # if you count k indexes (after 1) in row n (after 1st), you get the result of choost(n,k).
 ## in [[5]], which is row n=4, k=2 index is 6. this is the binomal result of choose(4,2).
 read more in the URL provided.
+}
+\seealso{
+\url{https://www.mathsisfun.com/pascals-triangle.html}
 }
