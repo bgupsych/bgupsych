@@ -38,3 +38,6 @@ draw.binom(10:12,12,0.85) # 10,11 or 12 succsses in 12 trials with 85\% chance f
 You can change the decimals by adjusting the 'round' argument.
  draw.binom(c(0,1,2),2,3/5,round=5)
 }
+\seealso{
+Use \code{\link{draw}} to draw a generic distribution.
+}
