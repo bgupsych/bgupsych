@@ -18,6 +18,7 @@
 #' @return \code{\link{data.frame}} with the specific X and its probability.
 #'   \code{\link{print}}: two verbal prints: Tohelet and Shonut of your experiment.
 #' @note when using large numbers, \code{\link{ggplot2}} graph might go off. Sorry about that. See data instead.
+#' @seealso Use \code{\link{draw}} to draw a generic distribution.
 
 draw.binom <- function(X,n,p,round=3){
   prob=dbinom(X,n,p)
