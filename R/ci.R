@@ -5,8 +5,8 @@
 #' @param N sample size.
 #' @param conf confidence level. default is 95.
 #' @description Use this function when SD in population is known.
-#' @seealso \code{\link{ci.t()}} if SD in population is unknown.
-#' @examples \code{\link{ci(620,15,100)}}
+#' @seealso \code{\link{ci.t}} if SD in population is unknown.
+#' @examples ci(620,15,100)
 #' # is 620 the mean in population, 95% confidence
 #' ci(avg=100,sd=20,N=50,conf=99)
 #' # confidence is now at 99%
