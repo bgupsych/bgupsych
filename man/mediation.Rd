@@ -16,13 +16,10 @@ mediation(DV, x.pred, x.med, alpha = 5)
 \item{alpha}{Used in significant tests. default is 5 and means 0.05 .}
 }
 \value{
-[1] \code{\link{a*b+c'=c}} formula is tested.
+Please pay attention to the prints. They will conclude the results and warn you if there is anything to worry about.
+In case something went wrong with the formula for some reason, a \code{\link{stop}} command will stop exacution.
 
-[2] Paths's significance.
-
-[3] Is there a direct effect of \code{\link{c'}}.
-
-[4] \code{\link{data.frame}} with the paths (values and p value).
+\code{data.frame} with the results.
 }
 \description{
 This function calculates the direct and indirect effect of two variables,
@@ -36,10 +33,11 @@ Output is a table of your 4 paths, their value and p value.
 If some paths are significant and some aren't, check table for more details.
 }
 \examples{
-mediation(DV=trees$Girth,x.pred=trees$Height,x.med=trees$Volume)
-# In this example, we check whether volume is the mediator between Height and Girth.
-mediation(..., alpha =1)
-# In this example, the alpha is set to 1, or 0.01.
+\dontshow{attach(depression)}
+mediation(DV=Bsum,x.pred = age,x.med = sat)
+# In this example, we check whether satisfaction is the mediator depression score (Bsum) Height and age.
+\dontrun{mediation(..., alpha =1)}
+# In this example, the alpha is set to 1 (=0.01).
 }
 \seealso{
 \code{\link{medmod}} package for more options.
