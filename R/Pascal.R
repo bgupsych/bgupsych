@@ -4,7 +4,9 @@
 #' @export
 #' @importFrom purrr accumulate
 #' @seealso \url{https://www.mathsisfun.com/pascals-triangle.html}
-#' @source This function makes use of \code{\link{accumulate}} from the \code{\link{purrr} package.
+#' @source This function makes use of \code{\link{accumulate}} from the \code{\link{purrr}} package.
+#'
+#'
 #' \url{https://purrr.tidyverse.org/reference/index.html}
 #' @examples Pascal(4)
 #' # if you count k indexes (after 1) in row n (after 1st), you get the result of choost(n,k).
