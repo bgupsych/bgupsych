@@ -15,17 +15,32 @@ ci.t(avg, sd, N, conf = 95)
 
 \item{conf}{Confidence level for CI. default 95}
 }
+\value{
+\code{data.frame} containing all values, so each  can be called with $.
+
+\code{sd pop} An estimate for the SD in the population, based on the sample.
+
+\code{SE} Standard Error.
+
+\code{t value} The statistic.
+
+\code{Upper Lower} Range of the ci.
+
+\code{df} Degrees of freedom.
+
+\code{conf} Confidence level.
+}
 \description{
-Use this function when SD in population is unknown.
+Calculates ci when SD in population is unkonwn
 }
 \examples{
-\code{\link{ci.t(avg=25,sd=12,N=30)}}
-\code{\link{ci.t(avg=25,sd=12,N=30,confidence=99)}}
-\code{\link{ci.t(620,15,100)}}
+ci.t(avg=25,sd=12,N=30)
+ci.t(avg=25,sd=12,N=30,conf=99)
+ci.t(620,15,100)
 # is 620 the mean in population, 95\% confidence
 ci.t(avg=100,sd=20,N=50,conf=99)
 # confidence is now at 99\%
 }
 \seealso{
-\code{\link{ci()}} if SD in population is known
+\code{\link{ci}} if SD in population is known
 }
