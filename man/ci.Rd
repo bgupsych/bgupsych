@@ -19,11 +19,11 @@ ci(avg, sd, N, conf = 95)
 Use this function when SD in population is known.
 }
 \examples{
-\code{\link{ci(620,15,100)}}
+ci(620,15,100)
 # is 620 the mean in population, 95\% confidence
 ci(avg=100,sd=20,N=50,conf=99)
 # confidence is now at 99\%
 }
 \seealso{
-\code{\link{ci.t()}} if SD in population is unknown.
+\code{\link{ci.t}} if SD in population is unknown.
 }
