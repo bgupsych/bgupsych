@@ -10,9 +10,6 @@
 #' # is 620 the mean in population, 95% confidence
 #' ci(avg=100,sd=20,N=50,conf=99)
 #' # confidence is now at 99%
-
-
-## Basic confidence interval, when sd is known
 ci <- function(avg,sd,N,conf=95){
   sdmean <- sd/sqrt(N)
   Zscore <- qnorm((1-conf/100)/2,0,1)
