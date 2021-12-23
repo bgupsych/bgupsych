@@ -4,7 +4,10 @@
 \alias{Pascal}
 \title{Pascal Triangle generator}
 \source{
+This function makes use of \code{\link{accumulate}} from the \code{\link{purrr}} package.
 
+
+\url{https://purrr.tidyverse.org/reference/index.html}
 }
 \usage{
 Pascal(nrow)
