@@ -2,10 +2,14 @@
 % Please edit documentation in R/narm.R
 \name{sum}
 \alias{sum}
-\title{Defaults various functions to na.rm=T}
+\title{Sum with na.rm=TRUE}
 \usage{
 sum(x, ..., na.rm = TRUE)
 }
 \description{
 Simply changes the default argument to remove NA.
+}
+\examples{
+x <- c(1,2,3,4,5,NA)
+sum(x)
 }
