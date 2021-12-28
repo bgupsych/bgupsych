@@ -25,10 +25,12 @@ A nice visualization to asses whether a homoscedasticity is present
 Though you can use a multi-regression model, the X axis will show the first predictor only.
 }
 \examples{
-\dontshow {attach(depression)}
+\dontshow{attach(depression)}
 model <- lm(Bsum~m_years)
 HOMO(model)
+# Checking whether the residuals are equally distributed along the line, residualized y axis.
 HOMO(model,res=FALSE,transparence=.1)
+## Raw y axis with the regression line.
 \dontshow{detach(depression)}
 }
 \seealso{
