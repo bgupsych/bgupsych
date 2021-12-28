@@ -2,10 +2,14 @@
 % Please edit documentation in R/narm.R
 \name{median}
 \alias{median}
-\title{Defaults various functions to na.rm=T}
+\title{Median with na.rm=TRUE}
 \usage{
 median(x, ..., na.rm = TRUE)
 }
 \description{
 Simply changes the default argument to remove NA.
+}
+\examples{
+x <- c(1,2,3,4,5,NA)
+median(x)
 }
