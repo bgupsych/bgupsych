@@ -2,10 +2,14 @@
 % Please edit documentation in R/narm.R
 \name{var}
 \alias{var}
-\title{Defaults various functions to na.rm=T}
+\title{Var with na.rm=TRUE}
 \usage{
 var(..., na.rm = TRUE)
 }
 \description{
 Simply changes the default argument to remove NA.
+}
+\examples{
+x <- c(1,2,3,4,5,NA)
+var(x)
 }
