@@ -42,8 +42,12 @@ mitun(depression,suicide_tendencies,optimism)
 # Depression is predicted by suicide tendencies, while optimism levels moderate the relationship between them.
 \dontrun{mitun(..., sdH=2,sdL=-2)}
 # In this example, the graph will generate moderation of SD=+2, mean(sdM=0), and SD=-2 in the moderator variable.
-\dontshow(detach(moderation.data))
+\dontshow{detach(moderation.data)}
 }
 \seealso{
 \code{\link{jtools}} or \code{\link{interactions}} for more options.
+
+\url{https://cran.r-project.org/web/packages/jtools/jtools.pdf}
+
+\url{https://cran.r-project.org/web/packages/interactions/interactions.pdf}
 }
