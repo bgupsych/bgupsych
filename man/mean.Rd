@@ -2,10 +2,14 @@
 % Please edit documentation in R/narm.R
 \name{mean}
 \alias{mean}
-\title{Defaults various functions to na.rm=T}
+\title{Mean with na.rm=TRUE}
 \usage{
 mean(x, ..., na.rm = TRUE)
 }
 \description{
 Simply changes the default argument to remove NA.
+}
+\examples{
+x <- c(1,2,3,4,5,NA)
+mean(x)
 }
