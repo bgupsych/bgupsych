@@ -2,36 +2,44 @@
 % Please edit documentation in R/draw.R
 \name{draw}
 \alias{draw}
-\title{Draws a  distribution, Tohelet and Shonut}
+\title{Draws any distribution}
 \usage{
-draw(X, P, round = 3)
+draw(X, p, cumulative = F, sort.prob = F, round = 3)
 }
 \arguments{
-\item{X}{Mishtane Mikri.}
+\item{X}{Mishtane Mikri. Can be a vector of values.}
 
-\item{round}{Number of decimals desired. default is set to 3.}
+\item{cumulative}{a logical. If TRUE: draws a CDF. default is set to FALSE.}
 
-\item{p}{The probability for each x 'P(x)'}
+\item{sort.prob}{a logical. Concerns the data frame returned, if TRUE: sort by probability (in decreasing order), Otherwise same order as input of X. default is set to FALSE.}
+
+\item{round}{How many decimals to show. Default is set to 3.}
+
+\item{P}{Probability. Should be the same length as X (also vectorized).}
 }
 \value{
-\code{\link{data.frame}} with the specific X and its probability.
-  \code{\link{print}}: two verbal prints: Tohelet and Shonut of your experiment.
+\code{graph} (Print only).
+
+\code{Tohelet and Shonut} (Print only).
+
+\code{data.frame} of X and their probs (use \code{sort.prob} to change order method).
 }
 \description{
-Generates a graph, Tohelet and Shonut, plus a \code{\link{data.frame}} with your data.
+By providing X and their probability, you can draw either CDF or PMF
 }
-\details{
-By supplying the X and P(x), This function will generate the Tohelet and Shonut, and a clean graph.
+\note{
+Probs can add up to more than 1, It will work, but not advised and a warning message will appear.
+Negative probs will be automatically corrected to absolute value.
 }
 \examples{
-X=10:12
-probs=c(0.4,0.25,0.35)
-draw(X,probs)
-# Distribution of 10, 11 & 12, with their probs as created in 'X' and 'Probs'.
-
-# You can change the decimals by adjusting the 'round' argument.
- draw(c(0,1,2),c(0.2,0.5,0.3),round=5)
+x <- c(1:5)
+p <- c(0.1,0.2,0.25,0.25,0.2)
+draw(x,p)
+draw(x,p,cumulative=TRUE, sort.prob=TRUE)
+dice <- 1:6
+draw(dice,-1/6)
+## Even when using negative probability, it will work.
 }
 \seealso{
-Use \code{\link{draw.binom}} to draw a binomal distribution.
+For a fully detailed explanation about the differences between distributions please visit \url{https://www.researchgate.net/post/What-is-the-difference-between-probability-distribution-function-and-probability-density-function}
 }
