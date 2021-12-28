@@ -15,8 +15,12 @@
 #' # Depression is predicted by suicide tendencies, while optimism levels moderate the relationship between them.
 #' @examples \dontrun{mitun(..., sdH=2,sdL=-2)}
 #' # In this example, the graph will generate moderation of SD=+2, mean(sdM=0), and SD=-2 in the moderator variable.
-#' @examples \dontshow(detach(moderation.data))
+#' @examples \dontshow{detach(moderation.data)}
 #' @seealso \code{\link{jtools}} or \code{\link{interactions}} for more options.
+#'
+#' \url{https://cran.r-project.org/web/packages/jtools/jtools.pdf}
+#'
+#' \url{https://cran.r-project.org/web/packages/interactions/interactions.pdf}
 #' @note  The moderator MUST be numeric. This function works for a simple  moderation model.
 #' @returns \code{\link{ggplot}} graph.
 #' @returns \code{\link{lm}} model summary.
@@ -72,4 +76,3 @@ mitun <- function(DV,x.pred,x.mod,sdH=1,sdM=0,sdL=-1){
 
   return(gg)
 }
-
