@@ -8,11 +8,13 @@
 #' @returns  \code{graph} (print only).
 #' @note Though you can use a multi-regression model, the X axis will show the first predictor only.
 #' @seealso \url{https://www.youtube.com/watch?v=zRklTsY9w9c}
-#' @examples \dontshow {attach(depression)}
+#' @examples \dontshow{attach(depression)}
 #' model <- lm(Bsum~m_years)
 #' HOMO(model)
-#' HOMO(model,res=FALSE,transparence=.1)
-#' \dontshow{detach(depression)}
+#' # Checking whether the residuals are equally distributed along the line, residualized y axis.
+#' @examples HOMO(model,res=FALSE,transparence=.1)
+#' ## Raw y axis with the regression line.
+#' @examples \dontshow{detach(depression)}
 HOMO <- function(lm_object,res=T,transparence=0.8){
 
   transparence <- abs(transparence)
@@ -29,4 +31,3 @@ HOMO <- function(lm_object,res=T,transparence=0.8){
   print(g)
   return(summary(lm_object))
 }
-
