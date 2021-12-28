@@ -14,6 +14,8 @@
 #' @examples \dontrun{mediation(..., alpha =1)}
 #' # In this example, the alpha is set to 1 (=0.01).
 #' @seealso \code{\link{medmod}} package for more options.
+#'
+#' \url{https://cran.r-project.org/web/packages/medmod/medmod.pdf}
 #' @note  If some paths are significant and some aren't, check table for more details.
 #' @returns Please pay attention to the prints. They will conclude the results and warn you if there is anything to worry about.
 #' In case something went wrong with the formula for some reason, a \code{\link{stop}} command will stop exacution.
