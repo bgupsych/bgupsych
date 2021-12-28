@@ -41,4 +41,6 @@ mediation(DV=Bsum,x.pred = age,x.med = sat)
 }
 \seealso{
 \code{\link{medmod}} package for more options.
+
+\url{https://cran.r-project.org/web/packages/medmod/medmod.pdf}
 }
