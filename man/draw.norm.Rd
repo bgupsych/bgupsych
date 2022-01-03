@@ -17,6 +17,10 @@ draw.norm(
 \arguments{
 \item{X}{Mishtane Mikri. Can be a vector of values.}
 
+\item{mean}{The mean of the distribution}
+
+\item{sd}{The standard deviation of the distribution}
+
 \item{cumulative}{a logical. If FALSE: draws a PMF default is set to TRUE}
 
 \item{sort.prob}{a logical. Concerns the data frame returned, if TRUE: sort by probability (in decreasing order), Otherwise same order as input of X. default is set to FALSE.}
