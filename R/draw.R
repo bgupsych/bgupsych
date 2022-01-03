@@ -226,8 +226,8 @@ draw.exp <- function(X,rate,cumulative=T,sort.prob=F,round=3,x.range=NULL){
 #' @description By providing X, mean and sd, you can draw either CDF or PMF
 #' @export
 #' @param X Mishtane Mikri. Can be a vector of values.
-#' @param mean
-#' @param sd
+#' @param mean The mean of the distribution
+#' @param sd The standard deviation of the distribution
 #' @param cumulative a logical. If FALSE: draws a PMF default is set to TRUE
 #' @param sort.prob a logical. Concerns the data frame returned, if TRUE: sort by probability (in decreasing order), Otherwise same order as input of X. default is set to FALSE.
 #' @param round How many decimals to show. Default is set to 3.
