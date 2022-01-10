@@ -21,6 +21,7 @@
 #' @seealso  For a fully detailed explanation about the differences between distributions please visit \url{https://www.researchgate.net/post/What-is-the-difference-between-probability-distribution-function-and-probability-density-function}
 #'
 draw <- function(X,p,cumulative=F,sort.prob=F,round=3){
+  require("ggplot2")
   P <- abs(p)
   len=c("Please make sure there's either 1 probability (like in a dice),\n  or same length as X (Mishtane Mikri)")
   if(length(P)!=1&length(P)!=length(X)){stop(len)}
@@ -67,6 +68,7 @@ draw <- function(X,p,cumulative=F,sort.prob=F,round=3){
 #' @seealso  For a fully detailed explanation about the differences between distributions please visit \url{https://www.researchgate.net/post/What-is-the-difference-between-probability-distribution-function-and-probability-density-function}
 #'
 draw.binom <- function(X,n=max(X),p,cumulative=F,sort.prob=F,round=3){
+  require("ggplot2")
   p <- abs(p)
   errp=c("\nProbability MUST be 0 >= p <= 1")
   if(p<0 | p>1){stop(errp)}
@@ -108,6 +110,7 @@ draw.binom <- function(X,n=max(X),p,cumulative=F,sort.prob=F,round=3){
 #' @seealso  For a fully detailed explanation about the differences between distributions please visit \url{https://www.researchgate.net/post/What-is-the-difference-between-probability-distribution-function-and-probability-density-function}
 #'
 draw.geom <- function(X,p,cumulative=F,decreasing=F,round=3){
+  require("ggplot2")
   p <- abs(p)
   X <- abs(X)
   # Validation argument
@@ -154,6 +157,7 @@ draw.geom <- function(X,p,cumulative=F,decreasing=F,round=3){
 #' @seealso  For a fully detailed explanation about the differences between distributions please visit \url{https://www.researchgate.net/post/What-is-the-difference-between-probability-distribution-function-and-probability-density-function}
 #'
 draw.pois <- function(X,lam,cumulative=F,sort.prob=F,round=3){
+  require("ggplot2")
   lam <- abs(lam)
   X <- abs(X)
   # Making the function robust
@@ -196,6 +200,7 @@ draw.pois <- function(X,lam,cumulative=F,sort.prob=F,round=3){
 #' ## Prob for successes between this range (3rd and 5th), given P~rate of 1/3.
 #'
 draw.exp <- function(X,rate,cumulative=T,sort.prob=F,round=3,x.range=NULL){
+  require("ggplot2")
   rate <- abs(rate)
   X <- abs(X)
   # Making the function robust
@@ -217,7 +222,9 @@ draw.exp <- function(X,rate,cumulative=T,sort.prob=F,round=3,x.range=NULL){
   cat("Tohelet (and SD) =",toh,"\n")
   cat("Shonut =",sho,"\n")
   if(sort.prob){a=a[order(a[,2],decreasing = T), ,]}
-  if(is.vector(x.range)) {cat("Probability for range is:",round(abs(pexp(x.range[1],rate)-pexp(x.range[2],rate)),round),"\n")}
+  if(is.vector(x.range)) {cat("Probability for event between",
+                              x.range[1],"and",x.range[2],"is",round(abs(pexp(x.range[1],rate)
+                                                                         -pexp(x.range[2],rate)),round),"\n")}
   print(g)
   return(a)
 }
@@ -244,6 +251,7 @@ draw.exp <- function(X,rate,cumulative=T,sort.prob=F,round=3,x.range=NULL){
 #' @seealso  For a fully detailed explanation about the differences between distributions please visit \url{https://www.researchgate.net/post/What-is-the-difference-between-probability-distribution-function-and-probability-density-function}
 #'
 draw.norm <- function(X,mean=0,sd=1,cumulative=T,sort.prob=F,round=3,x.range=NULL){
+  require("ggplot2")
   toh=mean
   sho=sd^2
 
@@ -264,7 +272,9 @@ draw.norm <- function(X,mean=0,sd=1,cumulative=T,sort.prob=F,round=3,x.range=NUL
   cat("Tohelet = ",toh,"\n")
   cat("Shonut =",sho,"\n")
   if(sort.prob){a=a[order(a[,2],decreasing = T), ,]}
-  if(is.vector(x.range)) {cat("Probability for range is:",round(abs(pnorm(x.range[1],mean,sd)-pnorm(x.range[2],mean,sd)),round),"\n")}
+  if(is.vector(x.range)) {cat("Probability for event between",
+                              x.range[1],"and",x.range[2],"is",round(abs(pnorm(
+                                x.range[1],mean,sd)-pnorm(x.range[2],mean,sd)),round),"\n")}
   print(g)
   return(a)
 }
