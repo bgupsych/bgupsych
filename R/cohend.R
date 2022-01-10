@@ -24,6 +24,7 @@
 #' @source \url{https://www.rdocumentation.org/packages/effsize/versions/0.8.1/topics/cohen.d}
 
 cohend <- function(x,y,conf=95,mu=0,g=F){
+  require("effsize")
   effsize::cohen.d(x,y,hedges.correction=g,
   conf.level=conf/100,mu=mu,na.rm=T)
 }
