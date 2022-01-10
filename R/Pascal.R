@@ -15,5 +15,6 @@
 #' @returns all levels up to level 30 of the triangle (or pyramid).
 
 Pascal <- function(nrow){
+  require(purrr)
   purrr::accumulate(1:nrow,~c(0,.)+c(.,0),.init = 1)
 }
