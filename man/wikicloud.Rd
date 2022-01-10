@@ -46,8 +46,8 @@ You dont need to change anything to make it work, and if you wish you can modify
 It is advised to simply install \code{\link{tidyverse}}. It includes many useful packages.
 }
 \examples{
+#Simpelest way, just plot a word cloud, using default settings:
 wikicloud("RStudio")
-# Most simple way, with default settings.
 wikicloud("RStudio",shape="star",min_freq=2)
 # Changing the shape of the cloud and filtering words that appear only once.
 wikicloud("Tag_cloud",shape="triangle",bg_color="blue",word_color=c("red","deeppink","#418122"))
