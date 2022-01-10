@@ -4,7 +4,7 @@
 \alias{ml}
 \title{Calculates Maximum Likelihood}
 \usage{
-ml(k, n, L, round = 4)
+ml(k, n, L, round = 4, geom = "jitter")
 }
 \arguments{
 \item{k}{Number of successes observed in all trials.}
@@ -14,10 +14,13 @@ ml(k, n, L, round = 4)
 \item{L}{The probability for success in each trial.}
 
 \item{round}{Number of decimals desired. default is set to 4.}
+
+\item{geom}{You can choose out of 3 \code{geoms} to visualise your results: \code{\link{geom_jitter}} (default), \code{\link{geom_col}}, or \code{\link{geom_line}}.}
 }
 \value{
 \code{\link{data.frame}} with the probability tested and its likelihood.
   \code{print}: A verbal print, modified to percentage.
+  \code{graph} of the Likelihood for each probability.
 }
 \description{
 This function returns the likelyhood of the data,
@@ -36,7 +39,7 @@ ml(k=7,n=10,L=0.7) # see full print for this one.
 
 You can change the decimals by adjusting the round argument.
  ml(7,10,0.7,round=3)
-
+ml(7,10,L=probs,geom="col")
 You can even test the likelihood of numerous probabilities.
  probs <- seq(0,1,length=10) #10 values between 0 and 1
  ml(7,10,L=probs)
