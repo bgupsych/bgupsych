@@ -7,7 +7,7 @@
 semi.partial.cor(DV, x.predictor, x.controlled)
 }
 \value{
-\code{data.frame} with the \code{Rsq} of partial and semi-partial, sample size and DF.
+\code{data.frame} with the \code{estimate} for both semi-partial & partial correlations, and its \code{p-value}.
 }
 \description{
 In the Partial correlation, the controlled variable is removed from both DV and UDV,
@@ -19,6 +19,7 @@ In a nutshell, both correlate residuals created by a third variable.
  Partial correlation is the correlation of two
  variables while controlling a third.
   SP holds constant the controlled variable only for the UDV (predictor).
+  Read more here \url{https://www.youtube.com/watch?v=OpAf4N582bA}
 }
 \note{
 Partial will always be Greater than/Equal to Semi-partial.
@@ -28,7 +29,8 @@ Partial will always be Greater than/Equal to Semi-partial.
 semi.partial.cor(DV=Bsum,x.predictor=m_years, x.controlled=age)
 # We correlate 'Bsum' and 'm_years', holding 'age' constant. In SP it's been removed from only the predicting variable,
 # whilst in partial from both.
+\dontshow{detach(depression)}
 }
 \seealso{
-\code{\link{ppcor}} for more options.
+This function runs \code{\link{ppcor}}, check it out for more options.
 }
