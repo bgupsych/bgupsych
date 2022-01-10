@@ -16,9 +16,10 @@
 #' @param min_freq Minimum frequency of the word in order to appear in the cloud and table. Default is 1 (that is, every word).
 #' @param remove_pattern A pattern to ignore, such as \code{.?:;-}. Its best to leace untouched.
 #' @param remove_words Words to ignore. If left as NULL, R will automatically ignore non-meaningful words in English, Spanish and French. It is advised to leave untouchd. If you do change this one, use free text, such as \code{"just type any words in one sentence and R will seperate them and ignore each"}.
-#' @examples wikicloud("RStudio")
-#' # Most simple way, with default settings.
-#' @examples wikicloud("RStudio",shape="star",min_freq=2)
+#' @examples #Simpelest way, just plot a word cloud, using default settings:
+#' wikicloud("RStudio")
+#' @examples
+#' wikicloud("RStudio",shape="star",min_freq=2)
 #' # Changing the shape of the cloud and filtering words that appear only once.
 #' @examples wikicloud("Tag_cloud",shape="triangle",bg_color="blue",word_color=c("red","deeppink","#418122"))
 #' # This is how the value" Tag cloud" is on Wikipedia's URL.
