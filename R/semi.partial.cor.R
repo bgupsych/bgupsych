@@ -20,9 +20,9 @@
 
 semi.partial.cor <- function(DV,x.predictor,x.controlled){
   require(ppcor)
-  DV=x
-  x.predictor=y
-  x.controlled=z
+  x=DV
+  y=x.predictor
+  z=x.controlled
   p=ppcor::pcor.test(x,y,z)
   sp=ppcor::spcor.test(x,y,z)
   psp=data.frame(type=c("partial","semipartial"),
