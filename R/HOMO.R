@@ -14,7 +14,7 @@
 #' @examples HOMO(model,res=FALSE,transparence=.1)
 #' ## Raw y axis with the regression line.
 HOMO <- function(lm_object,res=T,transparence=0.8){
-
+  require("ggplot2")
   transparence <- abs(transparence)
   Predictor <- lm_object$model[,2]
   if(res){DV=resid(lm_object)}
