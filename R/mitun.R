@@ -28,6 +28,7 @@
 #' @import ggplot2
 
 mitun <- function(DV,x.pred,x.mod,sdH=1,sdM=0,sdL=-1){
+  require("ggplot2")
   x.pred.c <- scale(x.pred,T,F) # scaling variables
   x.mod.c <- scale(x.mod,T,F) # scaling variables
   moderate <- x.pred.c*x.mod.c # creating moderate variable
