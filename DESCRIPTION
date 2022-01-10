@@ -1,7 +1,7 @@
 Package: BGUPsych
 Type: Package
 Title: Useful commands for BGU Psychology students
-Version: 0.1.0
+Version: 0.2.0
 Author: Yann C. (053-5290202)
 Maintainer: <yannco@post.bgu.ac.il>
 Description: This package was built by students and for students. If something is unclear email or call
@@ -11,9 +11,17 @@ LazyData: true
 RoxygenNote: 7.1.2
 Imports: 
     ggplot2,
-    purrr
+    purrr,
+    rvest,
+    tidyr,
+    dplyr,
+    wordcloud2,
+    stringr,
+    ppcor,
+    effsize
 Depends: 
     R (>= 2.10)
 Suggests: 
     caret,
-    olsrr
+    olsrr,
+    tidyverse
