@@ -4,12 +4,14 @@
 \alias{HOMO}
 \title{Homoscedasticity visualization}
 \usage{
-HOMO(lm_object, res = T, transparence = 0.8)
+HOMO(lm_object, res = T, hist = F, transparence = 0.8)
 }
 \arguments{
 \item{lm_object}{A linear model \code{\link{lm}}.}
 
-\item{res}{Logical to detremine whether to use raw DV, or set the y scale to the residuals. default is set to TRUE (show residualized y axis).}
+\item{res}{Logical to determine whether to use raw DV, or set the y scale to the residuals. default is set to TRUE (show residualized y axis).}
+
+\item{hist}{Logical. Whether to print a histogram of the residuals or not. Default is set to FALSE. if TRUE, switch between plots to see the residuals plot.}
 
 \item{transparence}{Controls the transparency of the points. Default as 0.8.}
 }
@@ -30,6 +32,8 @@ HOMO(model)
 # Checking whether the residuals are equally distributed along the line, residualized y axis.
 HOMO(model,res=FALSE,transparence=.1)
 ## Raw y axis with the regression line.
+HOMO(model,hist=TRUE)
+# Prints both the raw residuals plot and their histogram
 }
 \seealso{
 \url{https://www.youtube.com/watch?v=zRklTsY9w9c}
