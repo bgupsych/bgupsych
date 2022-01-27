@@ -4,7 +4,15 @@
 \alias{draw.pois}
 \title{Draws a Poisson distribution}
 \usage{
-draw.pois(X, lam, cumulative = F, sort.prob = F, round = 3)
+draw.pois(
+  X,
+  lam,
+  cumulative = F,
+  sort.prob = F,
+  round = 3,
+  show.label = TRUE,
+  nudge = 0
+)
 }
 \arguments{
 \item{X}{Mishtane Mikri. Can be a vector of values. each X is k successes.}
@@ -16,13 +24,17 @@ draw.pois(X, lam, cumulative = F, sort.prob = F, round = 3)
 \item{sort.prob}{a logical. Concerns the data frame returned, if TRUE: sort by probability (in decreasing order), Otherwise same order as input of X. default is set to FALSE.}
 
 \item{round}{How many decimals to show. Default is set to 3.}
+
+\item{show.label}{A logical. Default (TRUE) prints probability labels on the plot.}
+
+\item{nudge}{When \code{show.label} is TRUE, you can adjust the location of the labels by inputing a 2 length vector to adjust the label position (a single values works too). Usualy no adjustment is needed.}
 }
 \value{
 \code{graph} (Print only).
 
 \code{Tohelet and Shonut} (Print only).
 
-\code{data.frame} of X and their probs (use \code{decreasing} to change order method, in case random numbers are assigned).
+\code{data.frame} of X and their probs (use \code{sort.prob} to change order method, if random numbers are assigned).
 }
 \description{
 By providing X and a rate of events, you can draw either CDF or PMF
