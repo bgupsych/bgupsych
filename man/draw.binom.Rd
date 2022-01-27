@@ -4,7 +4,16 @@
 \alias{draw.binom}
 \title{Draws a binomal distribution}
 \usage{
-draw.binom(X, n = max(X), p, cumulative = F, sort.prob = F, round = 3)
+draw.binom(
+  X,
+  n = max(X),
+  p,
+  cumulative = F,
+  sort.prob = F,
+  round = 3,
+  show.label = TRUE,
+  nudge = 0
+)
 }
 \arguments{
 \item{X}{Mishtane Mikri. Can be a vector of values. each X is k successes.}
@@ -16,6 +25,10 @@ draw.binom(X, n = max(X), p, cumulative = F, sort.prob = F, round = 3)
 \item{sort.prob}{a logical. Concerns the data frame returned, if TRUE: sort by probability (in decreasing order), Otherwise same order as input of X. default is set to FALSE.}
 
 \item{round}{How many decimals to show. Default is set to 3.}
+
+\item{show.label}{A logical. Default (TRUE) prints probability labels on the plot.}
+
+\item{nudge}{When \code{show.label} is TRUE, you can adjust the location of the labels by inputing a 2 length vector to adjust the label position (a single values works too). Usualy no adjustment is needed.}
 
 \item{P}{Probability for success in each trial.}
 }
