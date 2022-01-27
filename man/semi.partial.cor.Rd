@@ -4,7 +4,14 @@
 \alias{semi.partial.cor}
 \title{Partial and Semi-partial correlations}
 \usage{
-semi.partial.cor(DV, x.predictor, x.controlled)
+semi.partial.cor(x1, x2, x.controlled)
+}
+\arguments{
+\item{x1}{A numeric vector you want to correlate with x2.}
+
+\item{x2}{A numeric vector you want to correlate with x1.}
+
+\item{x.controlled}{A numeric vector you want to hold constant.}
 }
 \value{
 \code{data.frame} with the \code{estimate} for both semi-partial & partial correlations, and its \code{p-value}.
@@ -26,7 +33,7 @@ Partial will always be Greater than/Equal to Semi-partial.
 }
 \examples{
 \dontshow{attach(depression)}
-semi.partial.cor(DV=Bsum,x.predictor=m_years, x.controlled=age)
+semi.partial.cor(x1=Bsum,x2=m_years, x.controlled=age)
 # We correlate 'Bsum' and 'm_years', holding 'age' constant. In SP it's been removed from only the predicting variable,
 # whilst in partial from both.
 \dontshow{detach(depression)}
