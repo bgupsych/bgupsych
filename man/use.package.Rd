@@ -7,12 +7,12 @@
 use.package(packages, library.only = TRUE)
 }
 \arguments{
-\item{packages}{a string of 1 or more packages names to be installed. Be aware of typos.}
+\item{packages}{A string of 1 or more packages names to be installed. Be aware of typos.}
 
 \item{library.only}{A logical. When TRUE, function only calls required packages, otherwise, packages will be installed. Default is set to TRUE.}
 }
 \description{
-Allows you to install and call from memory multiple packages at once.
+A vectorized version of \code{\link{library}} or \code{\link{install.packages}} that allows you to install and call from memory multiple packages at once.
 }
 \note{
 If you ask to re-install an existing package, a restart might be necessary. just press YES when asked by R. Otherwise abort and set \code{library.only} to TRUE.
@@ -20,5 +20,5 @@ If you ask to re-install an existing package, a restart might be necessary. just
 \examples{
 use.package("tidyverse")
 my_pack <- c("ggplot2","magrittr")
-use.package(my_pack,library.only=FALSE) # This will re-install these packages, and you will be asked to restart R.
+use.package(my_pack,library.only=FALSE) # This will re-install these packages, Abort and set library only to TRUE.
 }
