@@ -31,7 +31,7 @@ HOMO <- function(lm_object,res=T,hist=F,transparence=0.8){
     theme(legend.position = "none")
   if(hist){histdata <- data.frame(re=resid(lm_object))
   histg= ggplot(histdata,aes(x=re))+
-    geom_histogram(bins = 20)}
+    geom_histogram(bins = 20,color="#c4914b",fill="#ffefd9")}
   print(g)
   if(hist){print(histg)}
   return(summary(lm_object))
