@@ -69,11 +69,9 @@ mitun <- function(DV,x.pred,x.mod,sdH=1,sdM=0,sdL=-1){
   print(summary(m))
   print(data.frame(SD=c(sdH,sdM,sdL),intercepts=c(interH,interM,interL),
                    slopes=c(mH,mM,mL)))
-  # NOTE when sdH < 0 & coding shit
-  print(ifelse(sdH<0,"In the legend, ignore + sign",
-               sample(c("WTF?! Its great!","this is the best thing i've seen",
-                        "holy shit this function is awesome!!"),1,
-                      prob = c(.1,.10,.8))))
-
+  # NOTE when sdH < 0
+  print(if(sdH<0){"In the legend, ignore + sign"})
+  
   return(gg)
 }
+
