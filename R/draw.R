@@ -140,8 +140,9 @@ draw.geom <- function(X,p,cumulative=F,decreasing=F,round=3,show.label=TRUE,nudg
     geom_point()+geom_col(alpha=0.7)+
     theme(legend.position = "none")+
     scale_y_continuous(breaks = NULL)+
-    scale_x_continuous(breaks = X)
-    xlab("MISHTANE MIKRI")+labs(caption = "This function uses x=1 as succsses in 1st try")
+    scale_x_continuous(breaks = X)+
+    xlab("MISHTANE MIKRI")+
+    labs(caption = "This function uses x=1 as succsses in 1st try")
 
     cat("Tohelet =",toh,"\n")
   cat("Shonut =",sho,"\n")
@@ -185,9 +186,9 @@ draw.pois <- function(X,lam,cumulative=F,sort.prob=F,round=3,show.label=TRUE,nud
   g=ggplot(a,aes(x=X,y=prob,fill=prob))+geom_col()+
     theme(legend.position = "none")+
     scale_y_continuous(breaks = NULL)+
-    scale_x_continuous(breaks = X)
+    scale_x_continuous(breaks = X)+
+    xlab("MISHTANE MIKRI")
 
-  xlab("MISHTANE MIKRI")
   cat("Tohelet =",lamog,"\n")
   cat("Shonut =",lamog,"\n")
   if(sort.prob){a=a[order(a[,2],decreasing = T), ,]}
