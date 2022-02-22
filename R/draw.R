@@ -23,7 +23,7 @@
 #' @seealso  For a fully detailed explanation about the differences between distributions please visit \url{https://www.researchgate.net/post/What-is-the-difference-between-probability-distribution-function-and-probability-density-function}
 #'
 draw <- function(X,p,cumulative=F,sort.prob=F,round=3,show.label=TRUE,nudge=0){
-  require("ggplot2")
+  if (!require("ggplot2"))library(ggplot2)
   P <- abs(p)
   len=c("Please make sure there's either 1 probability (like in a dice),\n  or same length as X (Mishtane Mikri)")
   if(length(P)!=1&length(P)!=length(X)){stop(len)}
@@ -76,29 +76,38 @@ if(sum(ogp)>1){cat("\nWARNING:\nProbabilities add up tp more than 1.\n")}
 #' ## Even when using negative probability, it will work.
 #' @seealso  For a fully detailed explanation about the differences between distributions please visit \url{https://www.researchgate.net/post/What-is-the-difference-between-probability-distribution-function-and-probability-density-function}
 #'
-draw.binom <- function(X,n=max(X),p,cumulative=F,sort.prob=F,round=3,show.label=TRUE,nudge=0){
-  require("ggplot2")
+draw.binom <- function (X, n = max(X), p, cumulative = F, sort.prob = F, round = 3,
+                        show.label = TRUE, nudge = 0)
+{
+  if (!require("ggplot2"))library(ggplot2)
   p <- abs(p)
-  errp=c("\nProbability MUST be 0 >= p <= 1")
-  if(p<0 | p>1){stop(errp)}
-  if(max(X)>n){n=max(X)}
-  toh=n*p
-  sho=round(n*p*(1-p),round)
+  errp = c("\nProbability MUST be less than 1.")
+  if (p > 1) {stop(errp)}
 
-  if(cumulative){prob=pbinom(X,n,p)}
-  else {prob=dbinom(X,n,p)}
-  a=data.frame(x=X,prob=round(prob,round))
-  g=ggplot(a,aes(x=X,y=prob,fill=prob))+geom_col()+
-    theme(legend.position = "none")+
-    scale_y_continuous(breaks = NULL)+
+  if (max(X) > n) {n = max(X)}
+
+  toh = n * p
+  sho = round(n * p * (1 - p), round)
+
+  if (cumulative) {prob = pbinom(X, n, p)}
+  else {prob = dbinom(X, n, p)}
+
+  if(length(nudge==1)){nudge=c(nudge,nudge)}
+
+  a = data.frame(X = X, prob = round(prob, round))
+  g = ggplot(a, aes(X, y = prob, fill = prob)) + geom_col() +
+    theme(legend.position = "none") + scale_y_continuous(breaks = NULL) +
     scale_x_continuous(breaks = X)
-
-  cat("Tohelet =",toh,"\n")
-  cat("Shonut =",sho,"\n\n")
-  if(sort.prob){a=a[order(a[,2],decreasing = T), ,]}
-  ifelse(show.label,print(g+geom_label(aes(label=round(prob,round)),
-                                       alpha=0.6,nudge_x = nudge[1],nudge_y = nudge[2],color="white")),print(g))
-
+  cat("Tohelet =", toh, "\n")
+  cat("Shonut =", sho, "\n\n")
+  if (sort.prob) {
+    a = a[order(a[, 2], decreasing = T), , ]
+  }
+  ifelse(show.label, print(g +
+                             geom_label(aes(label = round(prob, round)),
+                                        alpha = 0.6, nudge_x  = nudge[1],
+                                        nudge_y = nudge[2], color = "white")),
+         print(g))
   return(a)
 }
 
@@ -122,7 +131,7 @@ draw.binom <- function(X,n=max(X),p,cumulative=F,sort.prob=F,round=3,show.label=
 #' @seealso  For a fully detailed explanation about the differences between distributions please visit \url{https://www.researchgate.net/post/What-is-the-difference-between-probability-distribution-function-and-probability-density-function}
 #'
 draw.geom <- function(X,p,cumulative=F,decreasing=F,round=3,show.label=TRUE,nudge=0){
-  require("ggplot2")
+  if (!require("ggplot2"))library(ggplot2)
   p <- abs(p)
   X <- abs(X)
   # Validation argument
@@ -174,7 +183,7 @@ draw.geom <- function(X,p,cumulative=F,decreasing=F,round=3,show.label=TRUE,nudg
 #' @seealso  For a fully detailed explanation about the differences between distributions please visit \url{https://www.researchgate.net/post/What-is-the-difference-between-probability-distribution-function-and-probability-density-function}
 #'
 draw.pois <- function(X,lam,cumulative=F,sort.prob=F,round=3,show.label=TRUE,nudge=0){
-  require("ggplot2")
+  if (!require("ggplot2"))library(ggplot2)
   lam <- abs(lam)
   X <- abs(X)
   # Making the function robust
@@ -222,7 +231,7 @@ draw.pois <- function(X,lam,cumulative=F,sort.prob=F,round=3,show.label=TRUE,nud
 #' ## Prob for successes between this range (3rd and 5th), given P~rate of 1/3.
 #'
 draw.exp <- function(X,rate,cumulative=T,sort.prob=F,round=3,x.range=NULL,show.label=TRUE,nudge=0){
-  require("ggplot2")
+  if (!require("ggplot2"))library(ggplot2)
   rate <- abs(rate)
   X <- abs(X)
   # Making the function robust
@@ -276,7 +285,7 @@ draw.exp <- function(X,rate,cumulative=T,sort.prob=F,round=3,x.range=NULL,show.l
 #' @seealso  For a fully detailed explanation about the differences between distributions please visit \url{https://www.researchgate.net/post/What-is-the-difference-between-probability-distribution-function-and-probability-density-function}
 #'
 draw.norm <- function(X,mean=0,sd=1,cumulative=T,sort.prob=F,round=3,x.range=NULL,show.label=TRUE,nudge=0){
-  require("ggplot2")
+  if (!require("ggplot2"))library(ggplot2)
   toh=mean
   sho=sd^2
 
