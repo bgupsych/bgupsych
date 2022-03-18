@@ -31,7 +31,7 @@ draw <- function(X,p,cumulative=F,sort.prob=F,round=3,show.label=TRUE,nudge=0){
   ogp=P
   if(cumulative){for(i in 1:length(P)){
     P[i]=sum(P[i],P[i-1])}}
-
+  if(length(nudge==1)){nudge=c(nudge,nudge)}
   a=data.frame(X=X,prob=round(P,round))
   g=ggplot(a,aes(X,prob,fill=prob))+
           geom_col()+
