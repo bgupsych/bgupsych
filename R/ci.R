@@ -11,9 +11,9 @@
 #' ci(avg=100,sd=20,N=50,conf=99)
 #' # confidence is now at 99%
 ci <- function(avg,sd,N,conf=95){
-  sdmean <- sd/sqrt(N)
+  SE <- sd/sqrt(N)
   Zscore <- qnorm((1-conf/100)/2,0,1)
-  return(data.frame(sdmid=round(sdmean,2),"a/2"=round(-Zscore,2),
-                Lower=round(avg+Zscore*sdmean,2),
-                Upper=round(avg-Zscore*sdmean,2), "conf"=conf))
+  return(data.frame(SE=round(SE,2),"a/2"=round(-Zscore,2),
+                Lower=round(avg+Zscore*SE,2),
+                Upper=round(avg-Zscore*SE,2), "conf"=conf))
 }
