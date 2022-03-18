@@ -27,6 +27,13 @@ ssmodel <- function(model){
   adrsq=round(lm_m$adj.r.squared,4)
   pred=names(model$coefficients[-1])
   cat("Predictor(s):",paste(pred,collapse = "+"),"\n")
+
+  pie(c(SSRes,SSReg),labels = c("SSRes","SSReg"),
+      col=c("#f8766d","#6da1f8"),
+      main = c("R squared:",Rsq),
+      xlab=c("Predictor(s):",
+             paste(pred,collapse = ", ")))
+
   return(data.frame(SST=SST,SSRes=SSRes,SSReg=SSReg,
                     Rsq=Rsq,"Adj.Rsq"=adrsq))
 }
