@@ -17,13 +17,12 @@
 #' ## Note that you need to set y=NA if you dont want to use it, otherwise you'll get an Error.
 #' @param x First vector.
 #' @param y Second vector.
-#' @param h0 Null hypothesis. default is 0
 #' @param conf Desired confidence level. default is set to 95.
-#' @param mu Use when comparing one sample. defaults is seto to 0.
+#' @param mu State your prior belief (H0) for the true difference between the groups. defaults is set to 0.
 #' @param g calls for the 'Hedge's g' correction. default is set to FALSE.
 #' @source \url{https://www.rdocumentation.org/packages/effsize/versions/0.8.1/topics/cohen.d}
 
-cohend <- function(x,y,conf=95,mu=0,g=F){
+cohend <- function(x,y,conf=95,mu=0,g=FALSE){
   require("effsize")
   effsize::cohen.d(x,y,hedges.correction=g,
   conf.level=conf/100,mu=mu,na.rm=T)
