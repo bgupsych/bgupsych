@@ -7,7 +7,7 @@
 \url{https://www.rdocumentation.org/packages/effsize/versions/0.8.1/topics/cohen.d}
 }
 \usage{
-cohend(x, y, conf = 95, mu = 0, g = F)
+cohend(x, y, conf = 95, mu = 0, g = FALSE)
 }
 \arguments{
 \item{x}{First vector.}
@@ -16,11 +16,9 @@ cohend(x, y, conf = 95, mu = 0, g = F)
 
 \item{conf}{Desired confidence level. default is set to 95.}
 
-\item{mu}{Use when comparing one sample. defaults is seto to 0.}
+\item{mu}{State your prior belief (H0) for the true difference between the groups. defaults is set to 0.}
 
 \item{g}{calls for the 'Hedge's g' correction. default is set to FALSE.}
-
-\item{h0}{Null hypothesis. default is 0}
 }
 \description{
 Calculates effect size (cohen's d) for one or two samples.
