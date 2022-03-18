@@ -70,8 +70,7 @@ mitun <- function(DV,x.pred,x.mod,sdH=1,sdM=0,sdL=-1){
   print(data.frame(SD=c(sdH,sdM,sdL),intercepts=c(interH,interM,interL),
                    slopes=c(mH,mM,mL)))
   # NOTE when sdH < 0
-  print(if(sdH<0){"In the legend, ignore + sign"})
-  
+  if(sdH<0){print("In the legend, ignore + sign")}
+
   return(gg)
 }
-
