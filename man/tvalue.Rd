@@ -14,11 +14,15 @@ tvalue(x, y, print = FALSE)
 \item{print}{A logical,whether to print the usual t.test print. default is set to FALSE.}
 }
 \value{
+\code{meandiff} The mean difference between the groups.
+
 \code{t value} The t value.
 
-\code{se} Standard Error.
+\code{SE} Standard Error.
 
 \code{df} Degrees of freedom.
+
+\code{p.value} The P Value of the result.
 }
 \description{
 Calculates the t value and SE, given two numeric vectors
@@ -26,7 +30,7 @@ Calculates the t value and SE, given two numeric vectors
 \examples{
 x <- c(17,4,58,96,0,12,14)
 y <- c(11,47,62,0,96,12,47,5)
-tvalue(x,y)
+tvalue(x,y,print=TRUE)
 }
 \seealso{
 \url{https://www.youtube.com/watch?v=3azuAaOJack} for further explenation.
