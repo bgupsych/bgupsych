@@ -26,14 +26,23 @@ se <- function(x,y){
 #' @param x A numeric vector.
 #' @param y A second numeric vector (Independent).
 #' @param print A logical,whether to print the usual t.test print. default is set to FALSE.
+#' @returns \code{meandiff} The mean difference between the groups.
 #' @returns \code{t value} The t value.
-#' @returns \code{se} Standard Error.
+#' @returns \code{SE} Standard Error.
 #' @returns \code{df} Degrees of freedom.
+#' @returns \code{p.value} The P Value of the result.
 #' @examples x <- c(17,4,58,96,0,12,14)
 #' y <- c(11,47,62,0,96,12,47,5)
-#' tvalue(x,y)
-tvalue <- function(x,y,print=FALSE){
-  if(print){print(t.test(x,y,var.equal=T))}
-  return(data.frame(t=(BGUPsych::mean(x)-BGUPsych::mean(y))/BGUPsych::se(x,y),
-se=BGUPsych::se(x,y),df=length(x)-2+length(y)))
+#' tvalue(x,y,print=TRUE)
+tvalue <- function (x, y, print = FALSE) {
+  printT <- t.test(x, y, var.equal = T)
+
+  if (print) {
+    print(printT)
+  }
+  return(data.frame(meandiff=as.numeric(printT$estimate[1]-printT$estimate[2]),
+                    t = (BGUPsych::mean(x) - BGUPsych::mean(y))/BGUPsych::se(x, y),
+                    SE = BGUPsych::se(x, y),
+                    df = length(x) - 2 + length(y),
+                    p.value=printT$p.value))
 }
