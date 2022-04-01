@@ -24,34 +24,37 @@
 #'
 draw <- function(X,p,cumulative=F,sort.prob=F,round=3,show.label=TRUE,nudge=0){
   if (!require("ggplot2"))library(ggplot2)
+  # Make the probability positive:
   P <- abs(p)
+  # Error message if no probability was provided:
   len=c("Please make sure there's either 1 probability (like in a dice),\n  or same length as X (Mishtane Mikri)")
   if(length(P)!=1&length(P)!=length(X)){stop(len)}
+
+  if(length(P)==1){P=rep(P,length(X))}
   t=sum(X*P)
   ogp=P
-  if(cumulative){for(i in 1:length(P)){
+  if(cumulative){for(i in 2:length(P)){
     P[i]=sum(P[i],P[i-1])}}
   if(length(nudge==1)){nudge=c(nudge,nudge)}
   a=data.frame(X=X,prob=round(P,round))
   g=ggplot(a,aes(X,prob,fill=prob))+
-          geom_col()+
-          geom_label(aes(label=round(prob,round)),
-                     color="white",alpha=0.6,nudge_y = 0.02)+
-          scale_x_continuous(breaks = X)+
-          theme(legend.position = "none")+
-          scale_y_continuous(breaks = NULL)
+    geom_col()+
+    scale_x_continuous(breaks = X)+
+    theme(legend.position = "none")+
+    scale_y_continuous(breaks = sample(a$prob,5,T))
 
   cat("Tohelet:", t,"\n")
   cat("Shonut:",sum((X-t)^2*ogp),"\n")
   if(sort.prob){a=a[order(a[,2],decreasing = T), ,]}
 
-if(sum(ogp)>1){cat("\nWARNING:\nProbabilities add up tp more than 1.\n")}
+  if(sum(ogp)>1){cat("\nWARNING:\nProbabilities add up tp more than 1.\n")}
   if(sort.prob){a=a[order(a[,2],decreasing = T), ,]}
   ifelse(show.label,print(g+geom_label(aes(label=round(prob,round)),
                                        alpha=0.6,nudge_x = nudge[1],nudge_y = nudge[2],color="white")),print(g))
 
   return(a)
 }
+
 
 #' Draws a binomal distribution
 #' @description By providing X, n and a probability, you can draw either CDF or PMF
