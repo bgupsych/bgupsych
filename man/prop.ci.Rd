@@ -18,6 +18,8 @@ prop.ci(n, k, conf = 95)
 
 \code{q} Is the opposite probability of p (\code{1-p}).
 
+\code{SE} The Standard Error estimate based on empirical observations (\code{p and q}).
+
 \code{Lower} and \code{Upper} are the margins of the confidence interval.
 
 \code{conf} is the confidence level.
