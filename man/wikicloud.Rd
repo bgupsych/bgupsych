@@ -12,7 +12,9 @@ wikicloud(
   shape = "circle",
   min_freq = 0,
   max_freq = NULL,
-  remove_pattern = "[.?:;,-]",
+  min_length = 1,
+  max_length = 25,
+  remove_pattern = "[:punct:]",
   remove_words = NULL
 )
 }
@@ -25,15 +27,19 @@ wikicloud(
 
 \item{word_color}{The color of the words pressented. This is a un-limited vector in size. Use basic colors in R such as \code{c("red","steelblue","deeppink","brown")} and/or HTML codes such as \code{"#76acdc"}.}
 
-\item{shape}{Choose your desired cloud shape. \code{ âcircleâ (default), âcardioidâ, âdiamondâ (alias of square), âtriangle-forwardâ, âtriangleâ, âpentagonâ, and âstarâ}.}
+\item{shape}{Choose your desired cloud shape. \code{circle} (default), \code{cardioid, diamond, triangle, triangle-forward, pentagon, star}.}
 
-\item{min_freq}{Minimum frequency of the word so it appears in the cloud and table. Default is 1 (that is, every word).}
+\item{min_freq}{Minimum frequency of the word to display. Default is 1 (Once).}
 
-\item{max_freq}{Maximum frequency of the word so it appears in the cloud and table. Default is the maximum frequency (that is, every word).}
+\item{max_freq}{Maximum frequency of the word to display. Default is the maximum frequency.}
 
-\item{remove_pattern}{A pattern to ignore, such as \code{.?:;-}. Its best to leace untouched.}
+\item{min_length}{Minimum word's length to display. Default is 1.}
 
-\item{remove_words}{Words to ignore. If left as NULL, R will automatically ignore non-meaningful words in English, Spanish and French. It is advised to leave untouchd. If you do change this one, use free text, such as \code{"just type any words in one sentence and R will seperate them and ignore each"}.}
+\item{max_length}{Maximum word's length to display. Default is 25.}
+
+\item{remove_pattern}{A pattern to ignore, such as \code{[:punct:]}. It's best to leave untouched.}
+
+\item{remove_words}{Words to ignore. Function is set to ignore repetitive words such as \code{a, and, the} and etc.. If you do change this one, use free text, such as \code{"just type any words in one sentence and R will seperate them and ignore each"}.}
 }
 \value{
 \code{\link{data.frame}} with the unique words and their frequency.
@@ -42,22 +48,24 @@ wikicloud(
 By typing any Wikipedia value you will get a beautiful wordcloud, with word's frequency as its size. The function is highly modifiable.
 }
 \details{
-This is a combination of Data mining (using \code{\link{rvest}}), data cleaning (using multiple packages, but mostly \code{\link{stringr}}) and a beautiful string visualization, using \code{\link{wordcloud2}}.
-Just type your desired Wikipedia value and run, or if you wish you can modify many things, from the color of the words, background, via the shape of the cloud, word's frequency range, language of Wiki value and more!
-}
-\note{
-It is advised to simply install \code{\link{tidyverse}}. It includes many useful packages.
+This is a combination of Data mining (using \code{\link{rvest}}), Data cleaning (using the \code{\link{tidyverse}}) and word cloud visualization, using \code{\link{wordcloud2}}.
+Just type your desired Wikipedia value and run, or if you wish you can modify many things, such as color, frequancy, langauge and more..
 }
 \examples{
 #Simpelest way, just plot a word cloud, using default settings:
 wikicloud("RStudio")
 wikicloud("RStudio",shape="star",min_freq=2)
 # Changing the shape of the cloud and filtering words that appear only once.
-wikicloud("Tag_cloud",shape="triangle",bg_color="blue",word_color=c("red","deeppink","#418122"))
+
+wikicloud("Tag cloud",shape="triangle",bg_color="blue",word_color=c("red","deeppink","#418122"))
 # This is how the value" Tag cloud" is on Wikipedia's URL.
-wikicloud("Donald_Trump",language="es",word_color="orange")
+
+wikicloud("Donald Trump",language="es",word_color="orange")
 # Changing the language of the Wiki page.
-wikicloud("Donald_Trump",min_freq=5,max_freq=60)
+
+wikicloud("donald trump",min_freq=5,max_freq=60)
 # By selecting the min and max frequency, you can modify the range of frequency. you can set either. both, or none (for full word table, leave untouched).
-## You might want to remove words yourself in this one, by modifying the 'remove_words' argument.
+}
+\seealso{
+\url{https://yannapps.shinyapps.io/Wikipedia_Word_Cloud/}
 }
