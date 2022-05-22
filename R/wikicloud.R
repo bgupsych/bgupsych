@@ -40,7 +40,7 @@
 wikicloud <- function(page,language="en",bg_color="white",
 word_color=c("#76acdc","#4c4c4c"),shape="circle",
 min_freq=0,max_freq=NULL,min_length=1,max_length=25,
-remove_pattern="[:punct:]",remove_words=NULL){
+remove_pattern="[:punct:]",remove_words=NULL,more_content){
 
   # Following packages are required:
   require("wordcloud2") # the cloud
@@ -56,16 +56,22 @@ page <- page %>% str_replace_all(" ","_") %>% str_to_title()
   # IF none mentioned, remove all these words:
   fr.es_remove=c("su fue una como o mas al Más ha para no sus elle los À ne À si e ser uso sin ce qui'il Apr Ã s comme cette a han ya e esto estan D'un este esta  ellas ellos lo son avec aux se por Ã y el il par sur sa ses qui que en es un con las del de la et le les en des a du dans sont ou est pour un au une pas ont")
   en_remove=c("he will who more have because into can then so do about what been him but may being this its had has which there these such than due were their also is not or are if it be the an at from as after who they had by for that with were the of and in to a his on was")
-  remove_words_null = str_to_title(unlist(str_split(c(fr.es_remove,en_remove),pattern=" ")))
+  he_remove=c(" הוא של על את עם אם כי וגם גם אולי או ידי בין היא לאחר אחרי בגלל כדי")
+  remove_words_null = str_to_title(unlist(str_split(c(fr.es_remove,en_remove,he_remove),pattern=" ")))
   if(is.null(remove_words)){
     remove_words=remove_words_null
   } else {remove_words=c(str_to_title(unlist(str_split(remove_words,pattern=" "))),
                          remove_words_null )}
   # ELSE, remove the words mentioned.
   # Data mining from wikipedia
+  # Take all content from wiki page
+  node="#bodyContent"
+  if(!more_content){
+    node="p"
+  }
   web_link <- paste(c("https://"),language,c(".wikipedia.org/wiki/"),page,sep = "")
 
-  raw_text=rvest::read_html(web_link) %>% rvest::html_nodes("p") %>%
+  raw_text=rvest::read_html(web_link) %>% rvest::html_nodes(node) %>%
     rvest::html_text()
   # Data cleanining
   clean.text <- str_to_title(str_remove_all(
