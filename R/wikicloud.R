@@ -56,7 +56,7 @@ page <- page %>% str_replace_all(" ","_") %>% str_to_title()
   # IF none mentioned, remove all these words:
   fr.es_remove=c("su fue una como o mas al Más ha para no sus elle los À ne À si e ser uso sin ce qui'il Apr Ã s comme cette a han ya e esto estan D'un este esta  ellas ellos lo son avec aux se por Ã y el il par sur sa ses qui que en es un con las del de la et le les en des a du dans sont ou est pour un au une pas ont")
   en_remove=c("he will who more have because into can then so do about what been him but may being this its had has which there these such than due were their also is not or are if it be the an at from as after who they had by for that with were the of and in to a his on was")
-  he_remove=c(" הוא של על את עם אם כי וגם גם אולי או ידי בין היא לאחר אחרי בגלל כדי")
+  he_remove=c(" זה זו היה הייתה היתה כמו החל אשר הוא של על את עם אם כי וגם גם אולי או ידי בין היא לאחר אחרי בגלל כדי")
   remove_words_null = str_to_title(unlist(str_split(c(fr.es_remove,en_remove,he_remove),pattern=" ")))
   if(is.null(remove_words)){
     remove_words=remove_words_null
