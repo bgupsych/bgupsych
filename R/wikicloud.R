@@ -77,7 +77,7 @@ page <- page %>% str_replace_all(" ","_") %>% str_to_title()
     group_by(words) %>% summarise(Frequency=sum(Frequency),
                                   Length=mean(Length)) %>%
     arrange(desc(Frequency)) %>% filter(!words %in%remove_words,
-                                        Length>=word_length[1] & Length<=word_length[2])
+                                        Length>=min_length & Length<=max_length)
   if(is.null(max_freq)){max_freq=max(words.freq$Frequency)}
   else {max_freq=max_freq}
   # Word cloud
