@@ -1,14 +1,13 @@
-#' ID Bikoret number generator
+#' ID Bikoret (control) number generator
 #' @export
 #' @param id Only input is your id without bikoret.
-#' #' @examples BikoretFinder("12345678")
+#' #' @examples BikoretFinder(12345678)
 #' # returns 2
 #' @description Not a very useful command :)
-#' use "quotes" around your ID no.
 
 BikoretFinder <- function(id){
   # id is a string
-  id <- strsplit(id, "")
+  id <- str_split(id,"")
   id <- unlist(id)
   id <- as.vector(as.numeric(id))
   # seperating each digit
