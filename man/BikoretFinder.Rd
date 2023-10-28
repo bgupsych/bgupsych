@@ -2,16 +2,15 @@
 % Please edit documentation in R/bikoret.finder.R
 \name{BikoretFinder}
 \alias{BikoretFinder}
-\title{ID Bikoret number generator}
+\title{ID Bikoret (control) number generator}
 \usage{
 BikoretFinder(id)
 }
 \arguments{
 \item{id}{Only input is your id without bikoret.
-#' @examples BikoretFinder("12345678")
+#' @examples BikoretFinder(12345678)
 # returns 2}
 }
 \description{
 Not a very useful command :)
-use "quotes" around your ID no.
 }
