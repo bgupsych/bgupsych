@@ -9,7 +9,7 @@ beta2b(beta, x, y)
 \arguments{
 \item{beta}{The beta value you want to convert.}
 
-\item{x}{The x variable (Undependent).}
+\item{x}{The x variable (Independent).}
 
 \item{y}{The y variable (Dependent).}
 }
@@ -19,12 +19,15 @@ raw Mekadem b
 \description{
 Converts the Beta value to a raw b, given the x and y
 }
+\details{
+You can either give as an input the full variable (a vector of length > 2) or the standard deviation.
+}
 \examples{
 model = lm(Bsum~sat+age,data=depression)
 by using \code{\link{lm.beta}} we get sat~0.504, and age~0.467.
 We want to convert them back to raw b:
 sat: beta2b(beta=0.5038211, x=depression$sat, y=depression$Bsum)
 ## 0.7899105
-age: beta2b(0.4673743,depression$age, y=depression$Bsum)
+age: beta2b(0.4673743,sd(depression$age), y=sd(depression$Bsum))
 ## 0.4072746
 }
